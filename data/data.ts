@@ -1,4 +1,16 @@
-export const Customerdata = [
+export interface SingleCustomer {
+  id: number;
+  name: {
+    first: string;
+    last: string;
+  };
+  total: number;
+  status: string;
+  method: string;
+  date: string;
+}
+
+export const Customerdata: SingleCustomer[] = [
   {
     id: 1,
     name: {
