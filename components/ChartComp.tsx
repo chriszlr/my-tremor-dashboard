@@ -8,14 +8,14 @@ const valueFormatter = (number: number) =>
 
 const ChartComp = () => {
   return (
-    <Card className="w-2/3">
+    <Card className="w-full md:w-2/3">
       <Title>Daily Revenue for the last 7 days.</Title>
       <Subtitle>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas,
         voluptate!
       </Subtitle>
       <BarChart
-        className="mt-6"
+        className="mt-6 h-[50vh]"
         data={chartData}
         index="Day"
         categories={["Sales"]}

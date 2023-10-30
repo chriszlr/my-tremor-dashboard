@@ -1,7 +1,8 @@
 import ChartComp from "@/components/ChartComp";
+import RecentOrders from "@/components/RecentOrders";
 import Sidebar from "@/components/Sidebar";
 import Widgets from "@/components/Widgets";
-import { Card, Metric } from "@tremor/react";
+import { Card, Flex, Metric } from "@tremor/react";
 
 export default function Home() {
   return (
@@ -14,7 +15,10 @@ export default function Home() {
 
         <Widgets />
 
-        <ChartComp />
+        <div className="flex flex-col md:flex-row gap-5">
+          <ChartComp />
+          <RecentOrders />
+        </div>
       </Card>
     </main>
   );
