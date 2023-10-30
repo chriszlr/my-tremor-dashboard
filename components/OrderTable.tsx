@@ -25,7 +25,8 @@ const OrderTable = () => {
 
   const iscustomerSelected = (customer: SingleCustomer) =>
     (customer.status === selectedStatus || selectedStatus === "all") &&
-    (selectedNames.includes(customer.name.first) || selectedNames.length === 0);
+    (selectedNames.includes(customer.name.first + " " + customer.name.last) ||
+      selectedNames.length === 0);
 
   return (
     <div>
