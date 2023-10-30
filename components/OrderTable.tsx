@@ -90,7 +90,7 @@ const OrderTable = () => {
                   <TableCell>
                     {item.name.first} {item.name.last}
                   </TableCell>
-                  <TableCell className="text-right">{item.total}</TableCell>
+                  <TableCell className="text-right">${item.total}</TableCell>
                   <TableCell className="text-right">{item.method}</TableCell>
                   <TableCell className="text-right">
                     {item.status === "On Hold" ? (
