@@ -110,3 +110,34 @@ export const data = [
     date: "1 Day ago",
   },
 ];
+
+export const chartData = [
+  {
+    Sales: 8289,
+    Day: "Monday",
+  },
+  {
+    Sales: 7932,
+    Day: "Tuesday",
+  },
+  {
+    Sales: 6815,
+    Day: "Wednesday",
+  },
+  {
+    Sales: 8621,
+    Day: "Thursday",
+  },
+  {
+    Sales: 9124,
+    Day: "Friday",
+  },
+  {
+    Sales: 7539,
+    Day: "Saturday",
+  },
+  {
+    Sales: 6127,
+    Day: "Sunday",
+  },
+];
