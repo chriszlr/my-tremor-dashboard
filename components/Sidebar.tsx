@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Sidebar = () => {
   return (
-    <div className="w-min h-screen bg-slate-800 rounded-lg hidden md:block">
+    <div className="w-min h-screen bg-slate-800 hidden md:block">
       <ul className="flex flex-col justify-center items-center p-4 space-y-3">
         <Link href="/" className="bg-slate-700 rounded-lg my-5">
           <Icon icon={HomeIcon} size="lg" />
