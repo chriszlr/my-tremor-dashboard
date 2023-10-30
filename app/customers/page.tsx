@@ -1,6 +1,6 @@
 import CustomerTable from "@/components/CustomerTable";
 import Sidebar from "@/components/Sidebar";
-import { Card, Metric } from "@tremor/react";
+import { Card } from "@tremor/react";
 
 export default function Home() {
   return (

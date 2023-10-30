@@ -19,14 +19,13 @@ import {
 import { InformationCircleIcon } from "@heroicons/react/solid";
 import { Customerdata, SingleCustomer } from "@/data/data";
 
-const CustomerTable = () => {
-  const [selectedMethod, setSelectedMethod] = useState("all");
+const OrderTable = () => {
+  const [selectedStatus, setSelectedStatus] = useState("all");
   const [selectedNames, setSelectedNames] = useState<string[]>([]);
 
   const iscustomerSelected = (customer: SingleCustomer) =>
-    (customer.method === selectedMethod || selectedMethod === "all") &&
-    (selectedNames.includes(customer.name.first + " " + customer.name.last) ||
-      selectedNames.length === 0);
+    (customer.status === selectedStatus || selectedStatus === "all") &&
+    (selectedNames.includes(customer.name.first) || selectedNames.length === 0);
 
   return (
     <div>
@@ -38,7 +37,7 @@ const CustomerTable = () => {
             justifyContent="start"
             alignItems="center"
           >
-            <Title>Customers</Title>
+            <Title>Order History</Title>
             <Icon
               icon={InformationCircleIcon}
               variant="simple"
@@ -50,7 +49,7 @@ const CustomerTable = () => {
           <MultiSelect
             className="max-w-full sm:max-w-xs"
             onValueChange={setSelectedNames}
-            placeholder="Select Customer"
+            placeholder="Select Order"
           >
             {Customerdata.map((item) => (
               <MultiSelectItem
@@ -64,13 +63,12 @@ const CustomerTable = () => {
           <Select
             className="max-w-full sm:max-w-xs"
             defaultValue="all"
-            onValueChange={setSelectedMethod}
+            onValueChange={setSelectedStatus}
           >
             <SelectItem value="all">All</SelectItem>
-            <SelectItem value="PayPal">PayPal</SelectItem>
-            <SelectItem value="Visa">Visa</SelectItem>
-            <SelectItem value="MasterCard">MasterCard</SelectItem>
-            <SelectItem value="Check">Check</SelectItem>
+            <SelectItem value="Completed">Completed</SelectItem>
+            <SelectItem value="Processing">Processing</SelectItem>
+            <SelectItem value="On Hold">On Hold</SelectItem>
           </Select>
         </div>
 
@@ -78,11 +76,10 @@ const CustomerTable = () => {
           <TableHead>
             <TableRow>
               <TableHeaderCell>Name</TableHeaderCell>
-              <TableHeaderCell className="text-right">Email</TableHeaderCell>
-              <TableHeaderCell className="text-right">
-                Last Order
-              </TableHeaderCell>
+              <TableHeaderCell className="text-right">Total</TableHeaderCell>
               <TableHeaderCell className="text-right">Payment</TableHeaderCell>
+              <TableHeaderCell className="text-right">Status</TableHeaderCell>
+              <TableHeaderCell className="text-right">Date</TableHeaderCell>
             </TableRow>
           </TableHead>
 
@@ -93,11 +90,18 @@ const CustomerTable = () => {
                   <TableCell>
                     {item.name.first} {item.name.last}
                   </TableCell>
+                  <TableCell className="text-right">{item.total}</TableCell>
+                  <TableCell className="text-right">{item.method}</TableCell>
                   <TableCell className="text-right">
-                    {item.name.first.toLowerCase() + "@gmail.com"}
+                    {item.status === "On Hold" ? (
+                      <Badge color={"amber"}>{item.status}</Badge>
+                    ) : item.status === "Completed" ? (
+                      <Badge color={"emerald"}>{item.status}</Badge>
+                    ) : item.status === "Processing" ? (
+                      <Badge color={"sky"}>{item.status}</Badge>
+                    ) : null}
                   </TableCell>
                   <TableCell className="text-right">{item.date}</TableCell>
-                  <TableCell className="text-right">{item.method}</TableCell>
                 </TableRow>
               )
             )}
@@ -108,4 +112,4 @@ const CustomerTable = () => {
   );
 };
 
-export default CustomerTable;
+export default OrderTable;

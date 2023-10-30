@@ -1,18 +1,16 @@
+import CustomerTable from "@/components/OrderTable";
 import Sidebar from "@/components/Sidebar";
-import { Card, Metric, Text } from "@tremor/react";
-import React from "react";
+import { Card } from "@tremor/react";
 
-const page = () => {
+export default function Home() {
   return (
     <main className="flex">
       <div>
         <Sidebar />
       </div>
       <Card>
-        <Metric>Orders</Metric>
+        <CustomerTable />
       </Card>
     </main>
   );
-};
-
-export default page;
+}
